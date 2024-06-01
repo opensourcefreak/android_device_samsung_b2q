@@ -13,7 +13,7 @@ TARGET_SCREEN_WIDTH := 1768
 
 # Init
 PRODUCT_PACKAGES += \
-    init.q2q.rc
+    init.b2q.rc
 
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -21,7 +21,7 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Overlays
 #PRODUCT_PACKAGES += \
-#    FrameworksResq2q
+#    FrameworksResb2q
 
 # call the common setup
 $(call inherit-product, device/samsung/sm8350-common/common.mk)

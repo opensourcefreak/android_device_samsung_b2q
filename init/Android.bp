@@ -4,8 +4,8 @@
 //
 
 prebuilt_etc {
-    name: "init.q2q.rc",
-    src: "init.q2q.rc",
+    name: "init.b2q.rc",
+    src: "init.b2q.rc",
     sub_dir: "init/hw",
     vendor: true,
 }

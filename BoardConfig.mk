@@ -6,16 +6,16 @@
 # Include the common OEM chipset BoardConfig.
 include device/samsung/sm8350-common/BoardConfigCommon.mk
 
-DEVICE_PATH := device/samsung/q2q
+DEVICE_PATH := device/samsung/b2q
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := q2q
+TARGET_OTA_ASSERT_DEVICE := b2q
 
 # Display
 TARGET_SCREEN_DENSITY := 420
 
 # Kernel
-TARGET_KERNEL_CONFIG	    := vendor/lineage_q2q_eur_openx_defconfig
+TARGET_KERNEL_CONFIG	    := vendor/lineage_b2q_eur_openx_defconfig
 BOARD_NAME                  := SM-F926B
 
 # Kernel Modules

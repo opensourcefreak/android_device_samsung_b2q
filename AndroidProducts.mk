@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/lineage_q2q.mk
+	$(LOCAL_DIR)/lineage_b2q.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_q2q-user \
-    lineage_q2q-userdebug \
-    lineage_q2q-eng
+    lineage_b2q-user \
+    lineage_b2q-userdebug \
+    lineage_b2q-eng

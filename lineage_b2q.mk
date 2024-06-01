@@ -9,16 +9,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from the device configuration.
-$(call inherit-product, device/samsung/q2q/device.mk)
+$(call inherit-product, device/samsung/b2q/device.mk)
 
 # Inherit from the Lineage configuration.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := lineage_q2q
-PRODUCT_DEVICE := q2q
+PRODUCT_NAME := lineage_b2q
+PRODUCT_DEVICE := b2q
 PRODUCT_BRAND := Samsung
-PRODUCT_MODEL := SM-F926B
+PRODUCT_MODEL := SM-F711B
 PRODUCT_MANUFACTURER := Samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
 
