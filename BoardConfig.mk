@@ -15,8 +15,8 @@ TARGET_OTA_ASSERT_DEVICE := b2q
 TARGET_SCREEN_DENSITY := 420
 
 # Kernel
-TARGET_KERNEL_CONFIG	    := vendor/lineage_b2q_eur_openx_defconfig
-BOARD_NAME                  := SM-F926B
+TARGET_KERNEL_CONFIG	    := vendor/b2q_eur_openx_defconfig
+BOARD_NAME                  := SM-F711B
 
 # Kernel Modules
 #BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load))

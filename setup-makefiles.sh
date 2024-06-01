@@ -8,7 +8,7 @@
 
 set -e
 
-export DEVICE=q2q
+export DEVICE=b2q
 export DEVICE_COMMON=sm8350-common
 export VENDOR=samsung
 
