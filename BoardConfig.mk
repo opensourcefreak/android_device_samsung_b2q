@@ -4,7 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/samsung/t2q
+include device/samsung/sm8350-common/BoardConfig-common.mk
+
+DEVICE_PATH := device/samsung/b2q
 
 #Build
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
@@ -13,7 +15,7 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 := 
+TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
 TARGET_CPU_VARIANT_RUNTIME := kryo300
 
@@ -45,19 +47,19 @@ BUILD_BROKEN_DUP_RULES := true
 #BOARD_KERNEL_IMAGE_NAME := Image
 #BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 #BOARD_KERNEL_SEPARATED_DTBO := true
-#TARGET_KERNEL_CONFIG := t2q_defconfig
-#TARGET_KERNEL_SOURCE := kernel/samsung/t2q
+TARGET_KERNEL_CONFIG := vendor/b2q_eur_openx_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/b2q
 
-# Kernel - prebuilt
-TARGET_FORCE_PREBUILT_KERNEL := true
-ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
-BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
-BOARD_INCLUDE_DTB_IN_BOOTIMG := 
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
-BOARD_KERNEL_SEPARATED_DTBO := 
-endif
+# Kernel modules
+BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(DEVICE_PATH)/modules/modules.blocklist
+BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules/modules.load))
+BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules/modules.load.recovery))
+BOOT_KERNEL_MODULES := $(strip $(shell cat $(DEVICE_PATH)/modules/modules.include.recovery))
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD_RAW := $(strip $(shell cat $(DEVICE_PATH)/modules/modules.load.vendor_boot))
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(foreach m,$(BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD_RAW),$(notdir $(m)))
+TARGET_MODULE_ALIASES_RAW := $(strip $(shell cat $(DEVICE_PATH)/modules/modules.alias.vendor_boot))
+TARGET_MODULE_ALIASES += $(foreach m,$(TARGET_MODULE_ALIASES_RAW),$(notdir $(m)))
+TARGET_MODULE_ALIASES += wlan.ko:qca_cld3_wlan.ko
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
@@ -72,8 +74,6 @@ BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 
 # Platform
 TARGET_BOARD_PLATFORM := lahaina
-
-PRODUCT_COPY_FILES += $(DEVICE_PATH)/prebuilts/dtb.img:dtb.img
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
@@ -90,7 +90,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2021-08-01
+VENDOR_SECURITY_PATCH := 2024-05-01
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -104,4 +104,4 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Inherit the proprietary files
-include vendor/samsung/t2q/BoardConfigVendor.mk
+include vendor/samsung/b2q/BoardConfigVendor.mk

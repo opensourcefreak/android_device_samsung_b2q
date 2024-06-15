@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Inherit from common tree
+$(call inherit-product, device/samsung/sm8350-common/common.mk)
+
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
@@ -20,6 +23,36 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
+
+# Init
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.default \
+    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.default
+
+PRODUCT_PACKAGES += \
+    fstab.default \
+    fstab.ramplus \
+    init.qcom.rc-b2q \
+    init.qti.kernel.rc \
+    init.ramplus.rc \
+    init.recovery.qcom.rc \
+    init.recovery.samsung.rc \
+    init.samsung.bsp.rc \
+    init.samsung.display.rc \
+    init.samsung.rc \
+    init.target.rc \
+    ueventd.rc \
+    init.class_main.sh \
+    init.qcom.early_boot.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.sh \
+    init.qti.kernel.sh \
+    init.qti.qcv.sh \
+    vendor_modprobe.sh \
+		init.qcom.usb.rc-b2q \
+		init.qcom.usb.sh-b2q \
+		init.qti.display_boot.rc-b2q \
+		init.qti.display_boot.sh-b2q
 
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
@@ -64,22 +97,6 @@ PRODUCT_PACKAGES += \
     qca6234-service.sh \
     vendor_modprobe.sh \
 
-PRODUCT_PACKAGES += \
-    fstab.default \
-    init.qcom.factory.rc \
-    init.qcom.rc \
-    init.qcom.usb.rc \
-    init.qti.kernel.rc \
-    init.qti.ufs.rc \
-    init.samsung.bsp.rc \
-    init.samsung.connector.rc \
-    init.samsung.display.rc \
-    init.samsung.rc \
-    init.t2q.rc \
-    init.target.rc \
-    init.recovery.qcom.rc \
-    init.recovery.samsung.rc \
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_RAMDISK)/fstab.default
 
@@ -91,4 +108,4 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/samsung/t2q/t2q-vendor.mk)
+$(call inherit-product, vendor/samsung/b2q/b2q-vendor.mk)

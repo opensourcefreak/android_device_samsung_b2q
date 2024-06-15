@@ -1,4 +1,4 @@
-# Android device tree for samsung SM-G9960 (t2q)
+# Android device tree for samsung SM-F711B (b2q)
 
 ```
 #
