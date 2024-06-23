@@ -67,11 +67,7 @@ on boot
     chmod 0664 /sys/class/usb_notify/usb_control/usb_data_enabled
 
 on post-fs-data
-# Samsung Pay
-    mkdir /efs/pfw_data 0760 vendor_spay vendor_spay
-
 # MST/NFC Switch
-    chown vendor_spay system /dev/mst_ctrl
     chmod 0660 /dev/mst_ctrl
 
 # for WIFI MEMDUMP
@@ -192,7 +188,7 @@ on post-fs-data && property:ro.csc.sales_code=TMB
     mount none /mnt/temp/priv-app/SMF /system/carrier/priv-app/SMF bind
     umount /mnt/temp
     rmdir /mnt/temp
-	
+
 # some priv-apps of DSH bind mount to ASR priv-apps
 on post-fs-data && property:ro.csc.sales_code=ASR
     umount /system/carrier
@@ -206,7 +202,7 @@ on post-fs-data && property:ro.csc.sales_code=ASR
     mount none /mnt/temp/priv-app/SMF /system/carrier/priv-app/SMF bind
     umount /mnt/temp
     rmdir /mnt/temp
-	
+
 # some priv-apps of DSH bind mount to TMK priv-apps
 on post-fs-data && property:ro.csc.sales_code=TMK
     umount /system/carrier
