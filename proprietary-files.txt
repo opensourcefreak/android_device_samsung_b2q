@@ -1439,7 +1439,6 @@ vendor/lib64/vendor.qti.hardware.iop@1.0.so
 vendor/lib64/vendor.qti.hardware.iop@2.0.so
 
 # Power
-vendor/bin/hw/android.hardware.power.samsung-service
 vendor/lib/hw/power.default.so
 vendor/lib64/hw/power.default.so
 vendor/lib64/libhypervintf.so
@@ -1867,7 +1866,6 @@ vendor/bin/hw/vendor.samsung.hardware.biometrics.fingerprint@3.0-service
 vendor/bin/hw/vendor.samsung.hardware.camera.provider@4.0-service_64
 vendor/bin/hw/vendor.samsung.hardware.hqm@1.0-service
 vendor/bin/hw/vendor.samsung.hardware.hyper-service
-vendor/bin/hw/vendor.samsung.hardware.light-service
 vendor/bin/hw/vendor.samsung.hardware.media.converter@1.0-service
 vendor/bin/hw/vendor.samsung.hardware.miscpower@2.0-service
 vendor/bin/hw/vendor.samsung.hardware.securesnap-service
@@ -2002,11 +2000,9 @@ vendor/etc/init/init.vendor.rilcommon.rc
 vendor/etc/init/init.vendor.sensors.rc
 vendor/etc/init/init.vendor.sysfw.rc
 vendor/etc/init/init.vendor.wlan.rc
-vendor/etc/init/lights-default-sec.rc
 vendor/etc/init/mppserver_ros.rc
 vendor/etc/init/mutualex.rc
 vendor/etc/init/pa_daemon_qsee.rc
-vendor/etc/init/power-default-sec.rc
 vendor/etc/init/poweropt-service.rc
 vendor/etc/init/qdcmss.rc
 vendor/etc/init/qmipriod.debug.rc
@@ -2156,10 +2152,8 @@ vendor/etc/video_bokeh_data/SRIB_VD_INT8_V001_sm8250_snpe1390.dlc
 vendor/etc/vintf/manifest/deviceManifest.xml
 vendor/etc/vintf/manifest/engmode_manifest.xml
 vendor/etc/vintf/manifest/hyper-default-sec.xml
-vendor/etc/vintf/manifest/lights-default-sec.xml
 vendor/etc/vintf/manifest/manifest.xml
 vendor/etc/vintf/manifest/mppserver.xml
-vendor/etc/vintf/manifest/power-samsung.xml
 vendor/etc/vintf/manifest/sec_c2_manifest_default0.xml
 vendor/etc/vintf/manifest/vaultkeeper_manifest.xml
 vendor/etc/vintf/manifest/vendor.qti.diag.hal.service.xml
@@ -2932,7 +2926,6 @@ vendor/lib64/vendor.samsung.hardware.camera.device@5.0.so
 vendor/lib64/vendor.samsung.hardware.camera.provider@4.0-legacy.so
 vendor/lib64/vendor.samsung.hardware.camera.provider@4.0.so
 vendor/lib64/vendor.samsung.hardware.hqm@1.0.so
-vendor/lib64/vendor.samsung.hardware.light-V1-ndk_platform.so
 vendor/lib64/vendor.samsung.hardware.media.converter-V1-ndk_platform.so
 vendor/lib64/vendor.samsung.hardware.media.mpp-V1-ndk_platform.so
 vendor/lib64/vendor.samsung.hardware.miscpower@2.0.so
