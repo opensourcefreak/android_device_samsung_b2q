@@ -5,14 +5,14 @@
 
 # Init
 PRODUCT_PACKAGES += \
-    init.t2q.rc
+    init.b2q.rc
 
 # Overlays
 PRODUCT_PACKAGES += \
-    FrameworksResT2q
+    FrameworksResB2q
 
 # Inherit from the common OEM chipset makefile.
 $(call inherit-product, device/samsung/sm8350-common/common.mk)
 
 # Inherit from the proprietary files makefile.
-$(call inherit-product, vendor/samsung/t2q/t2q-vendor.mk)
+$(call inherit-product, vendor/samsung/b2q/b2q-vendor.mk)

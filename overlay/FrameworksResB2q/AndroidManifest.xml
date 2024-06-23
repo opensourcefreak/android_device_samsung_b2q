@@ -3,7 +3,7 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="android.overlay.t2q">
+    package="android.overlay.b2q">
 
     <overlay
         android:isStatic="true"

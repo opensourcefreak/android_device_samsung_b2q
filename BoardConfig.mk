@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/samsung/t2q
+DEVICE_PATH := device/samsung/b2q
 
 include device/samsung/sm8350-common/BoardConfigCommon.mk
 
@@ -22,16 +22,18 @@ include device/samsung/sm8350-common/BoardConfigCommon.mk
 TARGET_SCREEN_DENSITY := 450
 
 # Kernel
-TARGET_KERNEL_CONFIG        := vendor/t2q_chn_hkx_defconfig
-BOARD_NAME                  := SRPTI01B007
+TARGET_KERNEL_CONFIG := vendor/b2q_eur_openx_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/b2q
+BOARD_NAME           := lahaina
 
 # Kernel modules
 BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load))
 BOARD_RECOVERY_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load.recovery))
 RECOVERY_KERNEL_MODULES := $(BOARD_RECOVERY_RAMDISK_KERNEL_MODULES_LOAD)
+TARGET_MODULE_ALIASES += wlan.ko:qca_cld3_wlan.ko
 
 # OTA assert
-TARGET_OTA_ASSERT_DEVICE := t2q
+TARGET_OTA_ASSERT_DEVICE := b2q
 
 # Security patch
-VENDOR_SECURITY_PATCH := 2024-03-01
+VENDOR_SECURITY_PATCH := 2024-05-01
